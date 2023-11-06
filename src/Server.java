@@ -14,8 +14,12 @@ public class Server {
             System.out.println("Vai aguardar conexao");
             while(true) {
                 Socket sckt = serverSck.accept();
-                new SocketThread(sckt).start();
+                SocketThread minhaThread = new SocketThread(sckt);
                 SocketsList.getInstance().addSocket(sckt);
+                minhaThread.start();
+                System.out.println(
+                        SocketsList.getInstance().getListaSockets()
+                );
             }
         } catch (IOException e) {
             throw new RuntimeException(e);
