@@ -11,13 +11,11 @@ public class Server {
     private static void run() {
         try {
             serverSck = new ServerSocket(4444);
-        Socket sckt = serverSck.accept();
-        in = new BufferedReader(
-                new InputStreamReader(
-                        sckt.getInputStream()));
-        String entrada = in.readLine();
-        System.out.println(entrada);
-        sckt.close();
+            System.out.println("Vai aguardar conexao");
+            while(true) {
+                Socket sckt = serverSck.accept();
+                new SocketThread(sckt).start();
+            }
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
