@@ -15,6 +15,7 @@ public class Server {
             while(true) {
                 Socket sckt = serverSck.accept();
                 new SocketThread(sckt).start();
+                SocketsList.getInstance().addSocket(sckt);
             }
         } catch (IOException e) {
             throw new RuntimeException(e);

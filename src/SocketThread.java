@@ -26,6 +26,7 @@ public class SocketThread extends Thread{
             }
             System.out.println(ret+ "  "+entrada);
             socket.close();
+            SocketsList.getInstance().removeSocket(socket);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
