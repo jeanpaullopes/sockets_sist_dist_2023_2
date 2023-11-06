@@ -42,7 +42,7 @@ public class SocketsList {
 
     public String getListaSockets() {
         String ret = "";
-        for (Socket sckt: sockets) {
+        for (Socket sckt: getSockets()) {
             ret+= sckt.getInetAddress()+"\n";
         }
 
