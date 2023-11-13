@@ -25,8 +25,10 @@ public class SocketThread extends Thread{
 
             }
             System.out.println(ret+ "  "+entrada);
+            SocketsList.getInstance().addSocket("nome", socket.getInetAddress().toString());
+
             socket.close();
-            SocketsList.getInstance().removeSocket(socket);
+            SocketsList.getInstance().removeSocket(socket.getInetAddress().toString());
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

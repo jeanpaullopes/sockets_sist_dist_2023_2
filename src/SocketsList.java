@@ -6,10 +6,8 @@ import java.util.Map;
 
 public class SocketsList {
     private static SocketsList instance;
-    private List<Socket> sockets;
-    private Map<String, Socket> socketsMap;
+    private Map<String, String> socketsMap;
     private SocketsList() {
-        sockets = new ArrayList<>();
         socketsMap = new HashMap<>();
     }
     public static SocketsList getInstance() {
@@ -19,31 +17,24 @@ public class SocketsList {
         return instance;
     }
 
-    public void addSocket(Socket sckt) {
-        sockets.add(sckt);
+    public void addSocket(String nome, String ip) {
+        socketsMap.put(ip, nome);
     }
-    public void addSocket(String nome, Socket sckt) {
-        socketsMap.put(nome, sckt);
-    }
-    public Socket removeSocket(String nome) {
+    public String removeSocket(String nome) {
         return socketsMap.remove(nome);
-    }
-    public boolean removeSocket(Socket sckt) {
-        return sockets.remove(sckt);
     }
 
     // não se deve retornar a lista do objeto
     // de forma direta. Deve-se envar uma cópia
-    public List<Socket> getSockets() {
-        ArrayList<Socket> list = new ArrayList<>(socketsMap.values());
+    public List<String> getSockets() {
+        ArrayList<String> list = new ArrayList<>(socketsMap.values());
         return list;
-
     }
 
     public String getListaSockets() {
         String ret = "";
-        for (Socket sckt: getSockets()) {
-            ret+= sckt.getInetAddress()+"\n";
+        for (String nome: getSockets()) {
+            ret+= nome+"\n";
         }
 
         return ret;

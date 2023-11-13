@@ -15,7 +15,7 @@ public class Server {
             while(true) {
                 Socket sckt = serverSck.accept();
                 SocketThread minhaThread = new SocketThread(sckt);
-                SocketsList.getInstance().addSocket(sckt);
+    //            SocketsList.getInstance().addSocket("nome", sckt);
                 minhaThread.start();
                 System.out.println(
                         SocketsList.getInstance().getListaSockets()
