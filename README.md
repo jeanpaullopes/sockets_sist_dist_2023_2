@@ -1,5 +1,9 @@
 Para criar o .JAR
 
+Entre na pasta do fonte ./src
+
+    cd src
+
 compile o projeto Java com 
 
     javac Server.java
