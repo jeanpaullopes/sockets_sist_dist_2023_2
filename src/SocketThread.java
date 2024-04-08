@@ -31,7 +31,7 @@ public class SocketThread extends Thread{
                 ret = socket.getInputStream().read();
                 // converte o byte lido em char e concatena
                 entrada += (char) ret;
-                System.out.println(ret);
+                System.out.println(entrada);
             }
             System.out.println("Depois do while");
             //System.out.println(ret+ "  "+entrada);
